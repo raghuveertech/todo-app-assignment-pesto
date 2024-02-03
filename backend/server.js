@@ -1,6 +1,8 @@
 const express = require("express");
+const connectToDb = require("./config/db");
 
 const app = express();
+connectToDb(); // connect to mongodb
 
 // routes
 app.use("/tasks", require("./routes/tasks"));
