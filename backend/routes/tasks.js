@@ -23,7 +23,8 @@ router.get("/", async (req, res) => {
   End point:    /tasks
   Method:       POST
   Description:  Create new task/Update exiting task, based on id from body
-*/
+After creating/updating a task, return all tasks
+  */
 
 router.post(
   "/",
@@ -70,5 +71,23 @@ router.post(
     }
   }
 );
+
+/*
+  End point:    /tasks/:id
+  Method:       DELETE
+  Description:  Delete a task based on id. After deleting a task, return all tasks
+  */
+
+router.delete("/:id", async (req, res) => {
+  try {
+    const deletedTask = await Task.findByIdAndDelete(req.params.id);
+    if (deletedTask._id) {
+      return res.json(await Task.find()); // send all tasks as response after deleting a task
+    }
+  } catch (error) {
+    console.log(error);
+    res.send("Server Error");
+  }
+});
 
 module.exports = router;
