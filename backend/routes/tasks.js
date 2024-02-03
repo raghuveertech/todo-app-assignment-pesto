@@ -5,16 +5,22 @@ const Task = require("../models/Task");
 const router = express.Router();
 
 /*
-  End point:   /tasks/
-  Method:      GET
+  End point:    /tasks
+  Method:       GET
+  Description:  Send all existing tasks
 */
 
-router.get("/", (req, res) => {
-  res.send("Tasks Route");
+router.get("/", async (req, res) => {
+  try {
+    return res.json(await Task.find());
+  } catch (error) {
+    console.log(error);
+    res.send("Server Error");
+  }
 });
 
 /*
-  End point:    /tasks/
+  End point:    /tasks
   Method:       POST
   Description:  Create new task/Update exiting task, based on id from body
 */
@@ -58,7 +64,10 @@ router.post(
       if (savedTask._id) {
         return res.json(await Task.find()); // send all tasks as response after creating a task to avoid another API call
       }
-    } catch (error) {}
+    } catch (error) {
+      console.log(error);
+      res.send("Server Error");
+    }
   }
 );
 
