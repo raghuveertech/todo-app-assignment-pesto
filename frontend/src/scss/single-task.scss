@@ -14,8 +14,8 @@
     padding: 0 5px;
     font-size: 16px;
     @media screen and (max-width: 767px) {
-      flex: 0 0 50%;
-      max-width: 50%;
+      flex: 0 0 45%;
+      max-width: 45%;
       font-size: 14px;
     }
   }
@@ -65,8 +65,8 @@
     text-align: right;
     padding: 0 5px;
     @media screen and (max-width: 767px) {
-      flex: 0 0 60px;
-      max-width: 60px;
+      flex: 0 0 80px;
+      max-width: 80px;
     }
     button {
       background-color: transparent;
