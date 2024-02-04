@@ -15,6 +15,10 @@ const Tasks = () => {
     getTasks();
   }, []);
 
+  useEffect(() => {
+    setFilteredTasks(tasks);
+  }, [tasks]);
+
   const handleFilterTasks = (e) => {
     const status = Number(e.target.value);
     if (status === 0) {
