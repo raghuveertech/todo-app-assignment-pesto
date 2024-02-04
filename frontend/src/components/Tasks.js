@@ -16,17 +16,17 @@ const Tasks = () => {
 
   return (
     <div className="card">
-      <div class="task-item header">
-        <div class="title">
+      <div className="task-item header">
+        <div className="title">
           <p>Title</p>
         </div>
-        <div class="desc">
+        <div className="desc">
           <p>Description</p>
         </div>
-        <div class="status to-do">
+        <div className="status to-do">
           <p>Status</p>
         </div>
-        <div class="actions">
+        <div className="actions">
           <p>Actions</p>
         </div>
       </div>

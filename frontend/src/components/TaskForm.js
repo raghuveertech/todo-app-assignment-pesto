@@ -19,16 +19,15 @@ const TaskForm = () => {
   const [loading, setLoading] = useState(false);
 
   const changeHandler = (e) => {
-    setFormData((prevFormData) => {
-      let name = e.target.name;
-      let value = e.target.value;
-      if (e.target.name === "status") {
-        value = Number(e.target.value);
-      }
-      return {
-        ...prevFormData,
-        [name]: value,
-      };
+    let name = e.target.name;
+    let value = e.target.value;
+    if (e.target.name === "status") {
+      value = Number(e.target.value);
+    }
+
+    setFormData({
+      ...formData,
+      [name]: value,
     });
   };
 
@@ -39,6 +38,7 @@ const TaskForm = () => {
       setTitleError("Please enter title");
       return;
     }
+
     const response = await createUpdateTaskAction(JSON.stringify(formData));
     if (response.type === "success") {
       setTasks(response.data);
@@ -51,9 +51,11 @@ const TaskForm = () => {
   };
 
   useEffect(() => {
-    setFormData({
-      ...currentTask,
-    });
+    if (currentTask._id) {
+      setFormData({
+        ...currentTask,
+      });
+    }
   }, [currentTask._id]);
 
   const { _id, title, description, status } = formData;
@@ -66,7 +68,7 @@ const TaskForm = () => {
           setView("list");
         }}
       >
-        <i class="fa-solid fa-xmark"></i>
+        <i className="fa-solid fa-xmark"></i>
       </button>
       {apiErrors && apiErrors.length > 0 ? (
         <ul className="api-errors">
@@ -81,7 +83,7 @@ const TaskForm = () => {
           <input name="title" value={title} onChange={changeHandler} />
           {titleError ? (
             <p className="error">
-              <i class="fa-solid fa-triangle-exclamation"></i> {titleError}
+              <i className="fa-solid fa-triangle-exclamation"></i> {titleError}
             </p>
           ) : null}
         </div>
