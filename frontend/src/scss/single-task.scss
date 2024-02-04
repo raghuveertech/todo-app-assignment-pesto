@@ -8,11 +8,21 @@
     flex: 0 0 30%;
     max-width: 30%;
     padding: 0 15px;
+    font-size: 16px;
+    @media screen and (max-width: 767px) {
+      flex: 0 0 50%;
+      max-width: 50%;
+      font-size: 14px;
+    }
   }
   .desc {
     flex: 0 0 40%;
     max-width: 40%;
     padding: 0 15px;
+    font-size: 16px;
+    @media screen and (max-width: 767px) {
+      display: none;
+    }
   }
   .status {
     flex: 0 0 150px;
@@ -20,9 +30,14 @@
     text-align: center;
     border-radius: 5px;
     padding: 3px;
+    @media screen and (max-width: 767px) {
+      flex: 0 0 auto;
+      max-width: none;
+    }
     span {
       padding: 3px 15px;
       border-radius: 5px;
+      font-size: 12px;
     }
     &.to-do {
       span {
@@ -44,6 +59,10 @@
     flex: 0 0 calc(30% - 150px);
     max-width: calc(30% - 150px);
     text-align: right;
+    @media screen and (max-width: 767px) {
+      flex: 0 0 80px;
+      max-width: 80px;
+    }
     button {
       background-color: transparent;
       border: 0;
