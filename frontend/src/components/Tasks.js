@@ -30,7 +30,7 @@ const Tasks = () => {
   return (
     <div>
       <div className="filter-tasks">
-        <div class="form-field">
+        <div className="form-field">
           <label>Status</label>
           <select name="status" onChange={handleFilterTasks}>
             <option value={0}>All</option>
