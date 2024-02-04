@@ -1,0 +1,61 @@
+@import "./variables.scss";
+
+.task-item {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+  .title {
+    flex: 0 0 30%;
+    max-width: 30%;
+    padding: 0 15px;
+  }
+  .desc {
+    flex: 0 0 40%;
+    max-width: 40%;
+    padding: 0 15px;
+  }
+  .status {
+    flex: 0 0 150px;
+    max-width: 150px;
+    text-align: center;
+    border-radius: 5px;
+    padding: 3px;
+    span {
+      padding: 3px 15px;
+      border-radius: 5px;
+    }
+    &.to-do {
+      span {
+        background-color: $todo;
+      }
+    }
+    &.completed {
+      span {
+        background-color: $completed;
+      }
+    }
+    &.in-progress {
+      span {
+        background-color: $in-progress;
+      }
+    }
+  }
+  .actions {
+    flex: 0 0 calc(30% - 150px);
+    max-width: calc(30% - 150px);
+    text-align: right;
+    button {
+      background-color: transparent;
+      border: 0;
+      margin: 0 5px;
+      font-size: 15px;
+      cursor: pointer;
+      &.edit {
+        color: $info;
+      }
+      &.delete {
+        color: $danger;
+      }
+    }
+  }
+}

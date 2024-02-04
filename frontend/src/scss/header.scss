@@ -1,0 +1,36 @@
+@import "./variables.scss";
+
+header {
+  max-width: 800px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding: 20px 0;
+  .title {
+    font-size: 28px;
+    text-align: center;
+    font-family: $secondary-font;
+    font-weight: 300;
+    color: $font-color;
+  }
+  .button {
+    button {
+      background-color: $secondary;
+      color: $black;
+      border: 0;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-family: $primary-font;
+      cursor: pointer;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: all 0.3s;
+      &:hover {
+        background-color: $primary;
+        color: $white;
+      }
+    }
+  }
+}

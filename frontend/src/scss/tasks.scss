@@ -1,0 +1,10 @@
+@import "./variables.scss";
+
+.tasks {
+  background-color: rgba($white, 0.8);
+  border: 8px solid $white;
+  border-radius: 5px;
+  padding: 15px;
+  max-width: 800px;
+  margin: auto;
+}

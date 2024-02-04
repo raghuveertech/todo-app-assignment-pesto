@@ -1,0 +1,17 @@
+@import "./variables.scss";
+
+html {
+  height: 100%;
+}
+body {
+  height: 100%;
+  background-color: $primary;
+  font-family: $primary-font;
+  background: linear-gradient(
+    90deg,
+    $bg-gradient-1 0%,
+    $bg-gradient-2 50%,
+    $bg-gradient-3 100%
+  );
+  padding: 0 15px;
+}
