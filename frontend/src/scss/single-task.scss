@@ -59,9 +59,11 @@
     flex: 0 0 calc(30% - 150px);
     max-width: calc(30% - 150px);
     text-align: right;
+    padding: 0 15px;
     @media screen and (max-width: 767px) {
       flex: 0 0 80px;
       max-width: 80px;
+      padding: 0;
     }
     button {
       background-color: transparent;
@@ -69,6 +71,11 @@
       margin: 0 5px;
       font-size: 15px;
       cursor: pointer;
+      opacity: 0.8;
+      transition: all 0.3s;
+      &:hover {
+        opacity: 1;
+      }
       &.edit {
         color: $info;
       }
