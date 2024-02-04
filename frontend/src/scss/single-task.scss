@@ -3,11 +3,15 @@
 .task-item {
   display: flex;
   align-items: center;
-  margin: 10px 0;
+  justify-content: space-between;
+  padding: 10px 0;
+  &:nth-child(even) {
+    background-color: rgba($quaternary, 0.3);
+  }
   .title {
     flex: 0 0 30%;
     max-width: 30%;
-    padding: 0 15px;
+    padding: 0 5px;
     font-size: 16px;
     @media screen and (max-width: 767px) {
       flex: 0 0 50%;
@@ -18,7 +22,7 @@
   .desc {
     flex: 0 0 40%;
     max-width: 40%;
-    padding: 0 15px;
+    padding: 0 5px;
     font-size: 16px;
     @media screen and (max-width: 767px) {
       display: none;
@@ -35,7 +39,7 @@
       max-width: none;
     }
     span {
-      padding: 3px 15px;
+      padding: 3px 5px;
       border-radius: 5px;
       font-size: 12px;
     }
@@ -59,11 +63,10 @@
     flex: 0 0 calc(30% - 150px);
     max-width: calc(30% - 150px);
     text-align: right;
-    padding: 0 15px;
+    padding: 0 5px;
     @media screen and (max-width: 767px) {
-      flex: 0 0 80px;
-      max-width: 80px;
-      padding: 0;
+      flex: 0 0 60px;
+      max-width: 60px;
     }
     button {
       background-color: transparent;

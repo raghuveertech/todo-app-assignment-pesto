@@ -40,13 +40,13 @@ router.post(
     const result = validationResult(req);
     if (!result.isEmpty()) {
       // if any validation errors
-      return res.send({ errors: result.array() });
+      return res.status(400).send({ errors: result.array() });
     }
-    const { id, title, status, description } = req.body;
+    const { _id, title, status, description } = req.body;
     let task; // task we send to mongo db
 
     try {
-      if (!id) {
+      if (!_id) {
         // new instance if no id
         task = new Task({
           title,
@@ -55,7 +55,7 @@ router.post(
         });
       } else {
         // get task from mongodb by id
-        task = await Task.findById(id);
+        task = await Task.findById(_id);
         task.title = title;
         task.status = status;
         task.description = description;
@@ -73,14 +73,14 @@ router.post(
 );
 
 /*
-  End point:    /tasks/:id
+  End point:    /tasks/:_id
   Method:       DELETE
   Description:  Delete a task based on id. After deleting a task, return all tasks
   */
 
-router.delete("/:id", async (req, res) => {
+router.delete("/:_id", async (req, res) => {
   try {
-    const deletedTask = await Task.findByIdAndDelete(req.params.id);
+    const deletedTask = await Task.findByIdAndDelete(req.params._id);
     if (deletedTask._id) {
       return res.json(await Task.find()); // send all tasks as response after deleting a task
     }

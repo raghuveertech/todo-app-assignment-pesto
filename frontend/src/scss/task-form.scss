@@ -1,0 +1,77 @@
+@import "./variables.scss";
+
+.task-form {
+  position: relative;
+  &.card {
+    padding: 30px;
+  }
+  .form-field {
+    margin-bottom: 20px;
+    label {
+      display: block;
+      font-size: 18px;
+      font-weight: 300;
+      margin-bottom: 5px;
+    }
+    input,
+    select {
+      height: 40px;
+      width: 100%;
+      padding: 0 10px;
+      font-size: 16px;
+      outline: 0;
+      box-shadow: 0;
+    }
+    &.error {
+      label {
+        color: $danger;
+      }
+      input {
+        border-color: $danger;
+      }
+    }
+    .error {
+      margin: 3px 0;
+      color: $danger;
+    }
+    &.create-button {
+      margin-bottom: 0;
+      text-align: center;
+      button {
+        background-color: $primary;
+        color: $white;
+        border: 0;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-family: "Poppins", sans-serif;
+        cursor: pointer;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        transition: all 0.3s;
+        font-size: 12px;
+        &:hover {
+          background-color: $secondary;
+          color: $black;
+        }
+        &.loading {
+          opacity: 0.3;
+          pointer-events: none;
+        }
+      }
+    }
+  }
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border: 0;
+    background-color: transparent;
+    font-size: 30px;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: all 0.3s;
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
