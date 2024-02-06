@@ -33,12 +33,12 @@ const TaskForm = () => {
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    setLoading(true);
     if (!title.trim()) {
       setTitleError("Please enter title");
       return;
     }
 
+    setLoading(true);
     const response = await createUpdateTaskAction(JSON.stringify(formData));
     if (response.type === "success") {
       setTasks(response.data);
